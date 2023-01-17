@@ -1,9 +1,10 @@
+import Header from "./components/Header";
 
 
 function App() {
   return (
-    <div>
-      <p className="text-xl">helloo</p>
+    <div className="w-full h-screen">
+      <Header />
     </div>
   );
 }

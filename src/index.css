@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@500&display=swap');
+
+
+
+body {
+    /* font-family: 'Poiret One', cursive; */
+    font-family: 'Spectral', serif;
+}
