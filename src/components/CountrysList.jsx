@@ -13,6 +13,15 @@ const CountrysList = () => {
         dispatch(fetchCountrys())
     }, [])
 
+
+    useEffect(() => {
+        if(countrys){
+            console.log('got something')
+        } else {
+            console.log('nothing')
+        }
+    },[countrys])
+
   return (
     <div>
         <p>render the countrs here</p>
