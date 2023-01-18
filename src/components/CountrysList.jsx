@@ -1,12 +1,14 @@
 import React,{ useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchCountrys } from '../redux/features/countrysSlice'
-
+import { v4 as uuidv4 } from 'uuid'
+import Country from './Country'
 
 const CountrysList = () => {
 
     const dispatch = useDispatch()
     const {countrys, loading } = useSelector((state) => ({...state.app}))
+    const [modifiedCountrys, setModifiedCountrys] = useState([])
     
 
     useEffect(() => {
@@ -16,15 +18,29 @@ const CountrysList = () => {
 
     useEffect(() => {
         if(countrys){
-            console.log('got something')
+            const newState = countrys.map((item) => {
+                return {
+                    id: uuidv4(),
+                    name: item.name.common,
+                    flag: item.flags.png,
+                    population: item.population,
+                    capitalCity: item.capital   
+                }
+            })
+            setModifiedCountrys(newState)
         } else {
-            console.log('nothing')
+            setModifiedCountrys([])
         }
     },[countrys])
 
   return (
     <div>
-        <p>render the countrs here</p>
+        {modifiedCountrys.map((item) => {
+            const {id, name, flag, population,capitalCity} = item
+            return (
+               <Country name={name} id={id} flag={flag} population={population} capitalCity={capitalCity} />
+            )
+        })}
     </div>
   )
 }
