@@ -1,25 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-// import { application } from 'express'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchCountry } from '../redux/features/countrysSlice'
 
 const CountryPage = ({modifiedCountrys}) => {
   const {name} = useParams()
-  // const {countrys } = useSelector((state) => ({...state.app}))
-  // const [selectedCountry,setSelectedCountry] = useState({})
+  const dispatch = useDispatch()
 
-  // useEffect(()=> {
-  //   const country = countrys.filter((item) => {
-  //     return item.id === id
-  //   })
-  //   setSelectedCountry(country)
-  // },[countrys, id])
-  // console.log(countrys)
+  const [selectedCountry, setSelectedCountry] = useState(null)
 
+  const {country} = useSelector((state) => ({...state.app}))
+
+  useEffect(() => {
+    dispatch(fetchCountry({name}))
+  }, [])
+
+
+  // useEffect(() => {
+  //   if(country){
+  //     return {
+  //         name: country.name.common,
+  //         flag: country.flags.png,
+  //         population: country.population,
+  //         capitalCity: country.capital,
+  //         region: country.region 
+  //     }
+  //   } 
+  // }, [])
+  console.log(country)
 
   return (
     <div className='w-full h-full p-2'>            
-        {/* <p>{selectedCountry.name}</p> */}
         my country is {name}
     </div>
   )
