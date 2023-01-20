@@ -5,13 +5,15 @@ const Country = ({name, id, modifiedCountrys, capitalCity, flag, population, reg
   return (
     
     <Link to={`/country/${name}`}>      
-      <div className='w-[250px] rounded-md h-[300px] my-4 mx-auto shadow'>
-          <img src={flag} alt={name} className='h-[45%] rounded-t-md w-full'/>
-          <div className='w-full h-full px-2 py-4'>
+      <div className='w-[350px] rounded-md my-8 mx-auto shadow'>
+          <div className='h-[40%]'>
+            <img src={flag} alt={name} className='rounded-t-md w-full'/>
+          </div>
+          <div className='w-full px-2 py-8 bg-[#2b3945] text-[#ffffff] rounded-b-md'>
             <h2 className='font-bold text-xl'>{name}</h2>
-            <p><span>Population</span>: {population}</p>
-            <p>Region: {region}</p>
-            <small><span className='font-bold'>Capital</span>: {capitalCity}</small>
+            <p className='my-2 text-xl'><span className='font-[600]'>Population</span>: {population}</p>
+            <p className='my-2 text-xl'><span className='font-[600]'>Region:</span> {region}</p>
+            <p className='my-2 text-xl'><span className='font-[600]'>Capital</span>: {capitalCity}</p>
           </div>
       </div>
     </Link>

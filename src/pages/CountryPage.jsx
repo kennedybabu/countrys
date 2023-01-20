@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchCountry } from '../redux/features/countrysSlice'
+import {IoIosArrowRoundBack} from "react-icons/io"
+
 
 const CountryPage = ({modifiedCountrys}) => {
   const {name} = useParams()
@@ -13,37 +15,27 @@ const CountryPage = ({modifiedCountrys}) => {
 
   useEffect(() => {
     dispatch(fetchCountry({name}))
-  }, [name]) 
+    setSelectedCountry(country)
+  }, [name])
 
-
-  // useEffect(() => {
-  //   if(country){
-  //     return{
-  //       name: country[0].name.common,
-  //       population: country[0].population
-  //     }
-  //   }
-  // }, [])
 
   return (
-    <div className='w-full country-page p-2'>   
-        <Link to='/'>back</Link>         
-         {/* <div className='w-[250px] rounded-md h-[300px] my-4 mx-auto shadow'>
-          <img src={country[0].flags.png} alt={name} className='h-[45%] rounded-t-md w-full'/>
-          <div className='w-full h-full px-2 py-4'>
-            <h2 className='font-bold text-xl'>{name}</h2>
-            <p><span>Population</span>: {country[0].population}</p>
-            <p>Region: {country[0].region}</p>
-            <small><span className='font-bold'>Capital</span>: {country[0].capital}</small>
+    <div className='w-full country-page p-2 bg-[#202c37] px-5'>   	
+        <Link to='/'>
+          <button className='px-4 py-2 w-[100px] my-4 shadow-md text-[#ffffff] bg-[#2b3945] flex items-center'><IoIosArrowRoundBack className='mr-2'/>back</button>
+        </Link>   
+        <div className='w-full h-full mt-8 flex flex-col'>
+          <div className='w-full h-[250px]'>
+            <img src={country[0]?.['flags']?.['png']} alt={name} className='h-full w-full'/>  
           </div>
-      </div> */}
-      <img src={country[0]?.['flags']?.['png']} alt={name} className='h-[45%] rounded-t-md w-full'/>
-      {/* <p>{country[0].name.common}</p>
-      <p>{country[0].capital}</p>
-      <p>{country[0].population}</p> */}
-      <p>{country[0]?.['name']?.['common']}</p>
-      <p>{country[0]?.['capital']}</p>
-      <p>{country[0]?.['population']}</p>
+          <div className='w-full text-[#ffffff] pt-14'>
+            <h1 className='text-2xl font-bold'>{country[0]?.['name']?.['common']}</h1>
+            <p className='my-2'><span className='font-bold'>Populaton: </span>{country[0]?.['population']}</p>
+            <p className='my-2'><span className='font-bold'>Region: </span>{country[0]?.['region']}</p>
+            <p className='my-2'><span className='font-bold'>Sub Region: </span>{country[0]?.['subregion']}</p>
+            <p className='my-2'><span className='font-bold'>Capital: </span>{country[0]?.['capital']}</p>
+          </div>
+        </div>    
     </div>
   )
 }

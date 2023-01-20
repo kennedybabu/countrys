@@ -5,7 +5,7 @@ import SearchInput from '../components/SearchInput'
 
 const Home = () => {
   return (
-    <div>
+    <div className='w-full h-full bg-[#202c37]'>
         <SearchInput />
         <CountrysList />
     </div>

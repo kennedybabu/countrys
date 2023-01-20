@@ -4,7 +4,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 export const fetchCountrys = createAsyncThunk('countrys/fetchCountrys', async() => {
     return fetch(
         'https://restcountries.com/v3.1/all'
-        // 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
 
     ).then((res) => res.json())
 })

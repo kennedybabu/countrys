@@ -35,7 +35,7 @@ const CountrysList = () => {
     },[countrys])
 
   return (
-    <div>
+    <div className='bg-[#202c37] grid grid-cols-1 gap-3'>
         
         {modifiedCountrys.map((item) => {
             const {id, region, name, flag, population,capitalCity} = item

@@ -2,14 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&family=Spectral:wght@500&display=swap');
 
 
-
-body {
-    /* font-family: 'Poiret One', cursive; */
-    font-family: 'Spectral', serif;
+body {   
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 
@@ -20,5 +18,5 @@ body {
 
 
 .country-page {
-    height: calc(100% - 100px);
+    min-height: calc(100% - 100px);
 }
