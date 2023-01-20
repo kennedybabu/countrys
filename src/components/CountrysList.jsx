@@ -24,7 +24,8 @@ const CountrysList = () => {
                     name: item.name.common,
                     flag: item.flags.png,
                     population: item.population,
-                    capitalCity: item.capital   
+                    capitalCity: item.capital,
+                    region: item.region   
                 }
             })
             setModifiedCountrys(newState)
@@ -35,10 +36,11 @@ const CountrysList = () => {
 
   return (
     <div>
+        
         {modifiedCountrys.map((item) => {
-            const {id, name, flag, population,capitalCity} = item
+            const {id, region, name, flag, population,capitalCity} = item
             return (
-               <Country name={name} id={id} flag={flag} population={population} capitalCity={capitalCity} />
+               <Country modifiedCountrys={modifiedCountrys} key={id} region={region} name={name} id={id} flag={flag} population={population} capitalCity={capitalCity} />
             )
         })}
     </div>

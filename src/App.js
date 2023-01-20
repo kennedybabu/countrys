@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
-import Country from "./pages/Country";
+import Country from "./pages/CountryPage";
 
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Routes>     
         <Route path='/' exact element={<Home />} />
-        <Route path='/country/:id' element={<Country />} />
+        <Route path='/country/:name' element={<Country />} />
       </Routes>
     </div>
   );
