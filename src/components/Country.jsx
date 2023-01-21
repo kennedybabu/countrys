@@ -5,7 +5,7 @@ const Country = ({name, id, modifiedCountrys, capitalCity, flag, population, reg
   return (
     
     <Link to={`/country/${name}`}>      
-      <div className='w-[350px] rounded-md my-8 mx-auto shadow'>
+      <div className='w-[350px] md:w-[300px] rounded-md my-2 mx-auto shadow'>
           <div className='h-[200px]'>
             <img src={flag} alt={name} className='rounded-t-md h-full w-full'/>
           </div>

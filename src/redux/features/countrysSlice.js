@@ -15,11 +15,19 @@ export const fetchCountry = createAsyncThunk('country/fetchCountry', async({name
 })
 
 
+export const searchCountry = createAsyncThunk('country/searchCountry', async({query}) => {
+    return fetch(
+        `https://restcountries.com/v3.1/name/${query}`
+    ).then((res) => res.json())
+})
+
+
 export const countrysSlice = createSlice({
     name:'countrys',
     initialState: {
         countrys:[],
         country:{},
+        searchedCountry: [],
         loading: false,
         error: null
     },
@@ -45,6 +53,17 @@ export const countrysSlice = createSlice({
         [fetchCountry.rejected] : (state, action) => {
             state.error = action.payload
             state.loading = false
+        },
+        [searchCountry.pending]: (state, action) => {
+            state.loading = true
+        },
+        [searchCountry.fulfilled] : (state,action)=> {
+            state.searchedCountry = action.payload
+            state.loading = false
+        },
+        [searchCountry.rejected] : (state,action) => {
+            state.loading = false
+            state.error = action.payload
         }
     }
 })
