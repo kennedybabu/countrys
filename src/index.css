@@ -11,12 +11,6 @@ body {
 }
 
 
-#query:active {
-    outline: none;
-    border: none;
-}
-
-
 .country-page {
     min-height: calc(100% - 100px);
 }
